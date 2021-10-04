@@ -1,6 +1,5 @@
-import { useContext } from 'react'
 import { Container } from './styles'
-import { TransactionsContext } from '../../TransactionsContext'
+import { useTransactions } from '../../hooks/useTransactions'
 interface Transaction {
   id: number
   type: string
@@ -10,7 +9,7 @@ interface Transaction {
   createdAt: string
 }
 export function TransactionsTable() {
-  const transactions = useContext(TransactionsContext)
+  const { transactions } = useTransactions()
   console.log(`transactions`, transactions)
   return (
     <Container>
@@ -41,7 +40,4 @@ export function TransactionsTable() {
       </table>
     </Container>
   )
-}
-function TransactionContext(TransactionContext: any) {
-  throw new Error('Function not implemented.')
 }
